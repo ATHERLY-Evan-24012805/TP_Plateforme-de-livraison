@@ -31,6 +31,8 @@ Controlleurs :
 
 Pour ce qui est du lien entre la classe utilisateur de l'api *plat et utilisateurs* et la classe utilisateur de php je vais faire en sorte qu'a partir du moment où tu existes dans l'api tu existes dans l'application de livraison 
 
-**Ewan** : Il me faut une méthode createUSer(name, email) car la BDD des users est avec la composante *plat et utilisateurs*
+**Ewan** : Il me faut une méthode createUSer(name, email) car la BDD des users est avec la composante *plat et utilisateurs*. Il me faut aussi une méthode getUserById(id : int). 
 
-**Thomas** : Il me faut une méthdoe createCommande(abonneId, adresse, items : array) car la BDD des commandes est avec la composante *commandes*, il faudrait aussi potientiellement une methode interne pour avoir le prix d'un commande en fonction des objets dans items, ils peuvent être des plats ou des menu ce qui implique une interface commune surement.  
+**Thomas** : Il me faut une méthdoe createMenu(name, creatorId, items : array) car la BDD des menus est avec la composante *menu*, il faudrait aussi potientiellement une methode interne pour avoir le prix d'un menu en fonction des objets dans items.
+
+**Amine** : Il me faut une méthode ou je peux avoir les commands associées a un id. 
