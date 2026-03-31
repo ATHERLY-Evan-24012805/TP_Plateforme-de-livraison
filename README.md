@@ -22,7 +22,7 @@ Dans une commande on peut avoir des plats et des menus, par consequent il me fau
 Views :
 - PlatStore     ( Tous les plats recup via API)
 - MenuStore     ( Tous les menus recup via API)
-- CommandeStore (commande ulterieur et en cours)
+- CommandeView (commande ulterieur et en cours)
 
 Controlleurs :
 - ControllerPlat

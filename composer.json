@@ -1,0 +1,14 @@
+{
+    "name": "boubou/tp_plateforme-de-livraison",
+    "autoload": {
+        "psr-4": {
+            "App\\":"src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "boubou"
+        }
+    ],
+    "require": {}
+}
