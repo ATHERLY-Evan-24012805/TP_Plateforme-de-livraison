@@ -1,5 +1,7 @@
 <?php
 
+namespace App\model;
+
 class Command {
     
     private int $id;

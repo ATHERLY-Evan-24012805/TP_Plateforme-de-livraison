@@ -3,6 +3,7 @@
 
     use App\Router;
     use App\controller\controllerAccueil;
+    use App\controller\controllerPlat;
 
     // require_once 'Router.php';
     // require_once dirname(__DIR__) . '/controller/controllerAccueil.php';
@@ -12,6 +13,11 @@
     $router->add('GET','/accueil',function()  {
         $controller = new controllerAccueil();
         $controller->index();
+    });
+
+    $router->add('GET','/plats',function() {
+        $controller = new controllerPlat();
+        $controller->getPlats();
     });
 
     $uri = $_SERVER['REQUEST_URI'];
