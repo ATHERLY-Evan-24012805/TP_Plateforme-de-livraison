@@ -4,6 +4,7 @@
     use App\Router;
     use App\controller\controllerAccueil;
     use App\controller\controllerPlat;
+    use App\controller\LoginController;
 
     // require_once 'Router.php';
     // require_once dirname(__DIR__) . '/controller/controllerAccueil.php';
@@ -18,6 +19,16 @@
     $router->add('GET','/plats',function() {
         $controller = new controllerPlat();
         $controller->getPlats();
+    });
+
+    $router->add('GET','/login',function() {
+        $controller = new LoginController();
+        $controller->index();
+    });
+
+    $router->add('POST','/login',function(){
+        $controller = new LoginController();
+        $controller->dateFromForm();
     });
 
     $uri = $_SERVER['REQUEST_URI'];

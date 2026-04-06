@@ -31,14 +31,16 @@
       "nom": "Dupont",
       "prenom": "Marie",
       "email": "marie.dupont@email.fr",
-      "adresse": "12 rue des Lilas, 13001 Marseille"
+      "adresse": "12 rue des Lilas, 13001 Marseille",
+      "password": "1234"
     },
     {
       "id": 2,
       "nom": "Martin",
       "prenom": "Jean",
       "email": "jean.martin@email.fr",
-      "adresse": "3 avenue Foch, 13002 Marseille"
+      "adresse": "3 avenue Foch, 13002 Marseille",
+      "password": "5678"
     }
   ]
 }
