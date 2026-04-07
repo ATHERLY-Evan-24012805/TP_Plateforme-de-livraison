@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Connextion</title>
-</head>
-<body>
-    <h1>Veuillez renter vos informations pour vous connecter</h1>
-    <form action="/login" method ="POST">
+<?php
+$titrePage = "Connexion - Plateforme";
+ob_start();
+?>
+<h1>Veuillez renter vos informations pour vous connecter</h1>
+<form action="/login" method ="POST">
         <div>
             <div><b><?=htmlspecialchars($erreur) ?></b></div>
             <label><b>votre email : </b>
@@ -18,5 +15,7 @@
             <button type="submit">Login</button>
         </div>
     </form>
-</body>
-</html>
+<?php
+$content = ob_get_clean();
+require 'layout.php';
+?>

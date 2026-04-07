@@ -13,5 +13,5 @@ class Plat{
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
-    } 
+    }
 } 

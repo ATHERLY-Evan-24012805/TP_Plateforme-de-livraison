@@ -1,6 +1,6 @@
 <?php
 
-namespace App\model;
+namespace App\services;
 
 class ApiPlats {
 
@@ -17,5 +17,15 @@ class ApiPlats {
 
         $dataPlats = json_decode ($responseJson, true);
         return $dataPlats;
+    }
+
+    public function getPlatsById(int $itemId) {
+        $responseJson = file_get_contents($this->url . $this->plats . "/" . $itemId);
+
+        if ($responseJson === false) {
+            return [];
+        };
+        $dataPlat = json_decode($responseJson, true);
+        return $dataPlat;
     }
 }

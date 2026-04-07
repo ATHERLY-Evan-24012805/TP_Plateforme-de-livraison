@@ -21,7 +21,6 @@ class LoginService{
         ];
         $context = stream_context_create($request);
         $responseJson = file_get_contents($this->url . '/login', context : $context);
-        var_dump($responseJson);
         return json_decode($responseJson, true);
     }
 }
