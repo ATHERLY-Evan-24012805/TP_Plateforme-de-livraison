@@ -24,23 +24,19 @@
       "description": "Soupe de poissons marseillaise avec rouille et croûtons",
       "prix": 15.5
     }
-    ],
-  "utilisateurs": [
+  ],
+  "users": [
     {
-      "id": 1,
-      "nom": "Dupont",
-      "prenom": "Marie",
       "email": "marie.dupont@email.fr",
-      "adresse": "12 rue des Lilas, 13001 Marseille",
-      "password": "1234"
+      "password": "$2a$10$jeKWq1WoJ.czOSPFyTua.ej5/vADxYO7szp4CglZuZnVGS7I./h32",
+      "id": 1
     },
     {
-      "id": 2,
-      "nom": "Martin",
-      "prenom": "Jean",
       "email": "jean.martin@email.fr",
-      "adresse": "3 avenue Foch, 13002 Marseille",
-      "password": "5678"
+      "password": "$2a$10$ow3Fnf7UexnJ1NVGN6mkge3dlduyUE8ZCJQpj2bNTjFSZk78IUosK",
+      "nom": "Martin",
+      "prenom": "jean",
+      "id": 2
     }
   ]
 }

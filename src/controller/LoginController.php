@@ -15,6 +15,7 @@ class LoginController {
             $password = $_POST['password'];
             $loginService = new LoginService();
             $isConnected = $loginService->login($email,$password);
+            var_dump($isConnected);
 
             if(isset($isConnected['accessToken'])) {
                 var_dump("lo");

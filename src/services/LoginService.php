@@ -10,20 +10,18 @@ class LoginService{
             'email' => $email,
             'password' => $password
         ];
-        var_dump($donnees);
 
         $request = [
             'http'=>[
                 'method' => 'POST',
-                'header' => "Content-type: application/json\r\n",
+                'header' => ["Content-type: application/json"],
                 'content'=>  json_encode($donnees),
+                'ignore_errors' => true
             ]
         ];
         $context = stream_context_create($request);
-        
-        $responseJson = file_get_contents($this->url . '/login', false, $context);
+        $responseJson = file_get_contents($this->url . '/login', context : $context);
         var_dump($responseJson);
-
         return json_decode($responseJson, true);
     }
 }
