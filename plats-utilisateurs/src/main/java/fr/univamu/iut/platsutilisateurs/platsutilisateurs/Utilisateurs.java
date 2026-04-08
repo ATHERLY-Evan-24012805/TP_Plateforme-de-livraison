@@ -1,4 +1,4 @@
-package com.example.platsutilisateurs;
+package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
 public class Utilisateurs {
     private int id;
@@ -7,12 +7,12 @@ public class Utilisateurs {
     private String email;
     private String adresse;
     
-    public Utilisateurs(int id, String nom, String prenom, String email, String adresse){
-        this.id=id;
-        this.nom=nom;
-        this.prenom=prenom;
-        this.email=email;
-        this.adresse=adresse;
+    public Utilisateurs(int id, String nom, String prenom, String email, String adresse) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.adresse = adresse;
     }
     
     public int getId() {
@@ -31,7 +31,7 @@ public class Utilisateurs {
         return email;
     }
     
-    public String getAdresse(){
+    public String getAdresse() {
         return adresse;
     }
 }

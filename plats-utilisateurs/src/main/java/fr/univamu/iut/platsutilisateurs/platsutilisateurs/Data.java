@@ -1,9 +1,9 @@
-package com.example.platsutilisateurs;
+package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
 import java.util.ArrayList;
 
 public interface Data {
-
+    
     public void close();
     
     public Plats getPlat(int id);
