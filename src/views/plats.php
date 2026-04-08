@@ -10,7 +10,7 @@ ob_start();
                 <h2><?= htmlspecialchars($plat['nom'])?></h2>
                 <p><?= htmlspecialchars($plat['description'])?></p>
                 <p><?= htmlspecialchars($plat['prix'])?> €</p>
-                <a href="/command?id=<?= $plat['id'] ?>">
+                <a href="/orderPlat?id=<?= $plat['id'] ?>">
                     <img src="cart.svg" alt="Ajouter au panier">
                 </a>
             </li>
@@ -25,7 +25,7 @@ ob_start();
                     <p><?= htmlspecialchars($item["nom"])?></p>
                 <?php endforeach; ?>
                 <p><?= htmlspecialchars($menu['prixTotal'])?> €</p>
-                <a href="/command?id=<?= $menu['id'] ?>">
+                <a href="/orderMenu?id=<?= $menu['id'] ?>">
                     <img src="cart.svg" alt="Ajouter au panier">
                 </a>
             </li>

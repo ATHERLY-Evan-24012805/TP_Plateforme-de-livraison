@@ -6,16 +6,18 @@ namespace App\controller;
 use App\services\ApiOrder;
 
 class controllerCommand{
-    public function getOrderByUserId(int $userId){
+    private function isConnected(){
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-
         if(!isset($_SESSION['token'])){
             header('location: /login');
             exit;
         }
+    }
 
+    public function getOrderByUserId(int $userId){
+        $this->isConnected();
         $api = new ApiOrder;
 
         $orders = $api->getOrderByUserId($userId);

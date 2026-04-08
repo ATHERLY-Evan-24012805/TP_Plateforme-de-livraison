@@ -6,6 +6,7 @@
     use App\controller\controllerPlat;
     use App\controller\LoginController;
     use App\controller\controllerCommand;
+    use App\controller\controllerCart;
 
     // require_once 'Router.php';
     // require_once dirname(__DIR__) . '/controller/controllerAccueil.php';
@@ -21,7 +22,7 @@
         $controller = new controllerPlat();
         $plats = $controller->getPlats();
         $menus = $controller->getMenus();
-        $controller->displayAll($menus,$plats);
+        $controller->displayAll($menus,$plats);        
     });
 
     $router->add('GET','/login',function() {
@@ -52,9 +53,66 @@
             $controller->getOrderByUserId($id);
         }
         else{
-            echo "Erreur : aucun plat n'est trouvé";
+            echo "Erreur : aucune commande n'est trouvé";
         }
     });
+
+    $router->add('GET','/orderPlat', function(){
+        session_start();
+        if(isset($_SESSION["user_id"])){
+            $id = $_SESSION["user_id"];
+            $idItem = $_GET["id"];
+
+            $controller = new controllerPlat();
+            $plats = $controller->getPlats();
+            $menus = $controller->getMenus();
+
+            // mise dans le panier du produit
+            $controller->addToCart($idItem,false,$menus,$plats);
+
+            //reste sur l'affichage courant des plats et menus
+
+            $controller->displayAll($menus,$plats);
+        }
+        else{
+            echo "Erreur : impossible d'ajouter le plat à la commande";
+        }
+    });
+    
+    $router->add('GET','/orderMenu', function(){
+    session_start();
+    if(isset($_SESSION["user_id"])){
+        $id = $_SESSION["user_id"];
+        $idItem = $_GET["id"];
+
+        $controller = new controllerPlat();
+        $plats = $controller->getPlats();
+        $menus = $controller->getMenus();
+
+        // mise dans le panier du produit
+        $controller->addToCart($idItem,true,$menus,$plats);
+
+        //reste sur l'affichage courant des plats et menus
+
+        $controllerPlat->displayAll($menus,$plats);
+    }
+    else{
+        echo "Erreur : impossible d'ajouter le menu à la commande";
+    }
+    });
+    
+    $router->add('GET','/cart',function(){
+        session_start();
+        if(isset($_SESSION["user_id"])){
+            $id = $_SESSION["user_id"];
+
+            $controller = new controllerCart();
+            $items = $_SESSION['cart'];
+            $controller->display($items);
+        }
+    });
+
+
 
     $uri = $_SERVER['REQUEST_URI'];
     $method = $_SERVER['REQUEST_METHOD'];

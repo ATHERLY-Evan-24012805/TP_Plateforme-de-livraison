@@ -16,6 +16,7 @@
             
             <?php if (isset($_SESSION['token'])): ?>
                 <a href="/commandes">Mes Commandes</a>
+                <a href="/cart">Panier</a>
                 <a href="/logout">Déconnexion</a>
             <?php else: ?>
                 <a href="/login">Connexion</a>
