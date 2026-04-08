@@ -18,9 +18,7 @@ class controllerCart{
         }
     }
 
-    public function display() {
-        $this->isConnected();
-
+    public function getCartDetails(){
         $cartService = new CartService();
         $sessionCart = $cartService->getcart(); 
 
@@ -48,6 +46,23 @@ class controllerCart{
                 }
             }
         }
+        foreach ($sessionCart['menus'] as $id => $quantite) {
+            foreach ($tousLesMenus as $menuDb) {
+                if ($menuDb['id'] == $id) {
+                    $menuDb['quantite'] = $quantite;
+                    $menuDb['prixLigne'] = $menuDb['prixTotal'] * $quantite;
+                    
+                    $cartDetails['menus'][] = $menuDb;
+                    $cartDetails['prixTotalPanier'] += $menuDb['prixLigne'];
+                    break; 
+                }
+            }
+        }
+        return $cartDetails;
+    }
+
+    public function display($cartDetails) {
+        $this->isConnected();
         require dirname(__DIR__) . '/views/cart.php';
     }
 }

@@ -29,14 +29,17 @@
     {
       "email": "marie.dupont@email.fr",
       "password": "$2a$10$jeKWq1WoJ.czOSPFyTua.ej5/vADxYO7szp4CglZuZnVGS7I./h32",
-      "id": 1
+      "id": 1,
+      "adresse": "12 rue des Lilas, 13001 Marseille"
+
     },
     {
       "email": "jean.martin@email.fr",
       "password": "$2a$10$ow3Fnf7UexnJ1NVGN6mkge3dlduyUE8ZCJQpj2bNTjFSZk78IUosK",
       "nom": "Martin",
       "prenom": "jean",
-      "id": 2
+      "id": 2,
+      "adresse": "3 avenue Foch, 13002 Marseille"
     }
   ]
 }

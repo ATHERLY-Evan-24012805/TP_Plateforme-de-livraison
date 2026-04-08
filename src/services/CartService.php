@@ -24,7 +24,7 @@ class CartService {
     }
 
     public function addMenu(int $idMenu) {
-        if (!empty($_SESSION['cart']['plats'][$idMenu])) {
+        if (!empty($_SESSION['cart']['menus'][$idMenu])) {
             $_SESSION['cart']['menus'][$idMenu]++;
         } else {
             $_SESSION['cart']['menus'][$idMenu] = 1;

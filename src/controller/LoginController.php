@@ -19,8 +19,10 @@ class LoginController {
             if(isset($isConnected['accessToken'])) {
                 session_start();
 
+                
                 $_SESSION['token'] = $isConnected['accessToken'];
                 $_SESSION['user_id'] = $isConnected['user']['id'];
+                $_SESSION['address'] = $isConnected['user']['adresse'];
 
                 header('Location: /plats');
                 exit;

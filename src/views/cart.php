@@ -20,10 +20,27 @@ ob_start();
             <p>Aucun plat dans le panier.</p>
         <?php endif; ?>
     </ul>
+    <h2>Menus :</h2>
+    <ul>
+        <?php foreach ($cartDetails["menus"] as $menu): ?>
+            <li>
+                <strong><?= htmlspecialchars($menu['nom']) ?></strong> <br>
+                Quantité : <?= $menu['quantite'] ?> <br>
+                Prix unitaire : <?= htmlspecialchars($menu['prixTotal']) ?> € <br>
+                <em>Total pour ce menu : <?= $menu['prixLigne'] ?> €</em>
+            </li>
+        <?php endforeach; ?>
+        <?php if(empty($cartDetails["menus"])): ?>
+            <p>Aucun plat dans le panier.</p>
+        <?php endif; ?>
+    </ul>
 </div>
 
 <hr>
 <h3>Total à payer : <?= $cartDetails['prixTotalPanier'] ?> €</h3>
+<form action="/order" method="POST">
+    <button type="submit">Commander</button>
+</form>
 
 <?php
 $content = ob_get_clean();

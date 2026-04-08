@@ -94,7 +94,7 @@
 
         //reste sur l'affichage courant des plats et menus
 
-        $controllerPlat->displayAll($menus,$plats);
+        $controller->displayAll($menus,$plats);
     }
     else{
         echo "Erreur : impossible d'ajouter le menu à la commande";
@@ -107,9 +107,21 @@
             $id = $_SESSION["user_id"];
 
             $controller = new controllerCart();
-            $items = $_SESSION['cart'];
-            $controller->display($items);
+            $cartDetails = $controller->getCartDetails();
+            $controller->display($cartDetails);
         }
+    });
+    $router->add('POST','/order',function(){
+        session_start();
+        if(isset($_SESSION["user_id"])){
+            $id = $_SESSION["user_id"];
+
+            $controller = new controllerCommand();
+            $controllerCart = new controllerCart();
+            $cartDetails = $controllerCart->getCartDetails();
+            $controller->createCommand($cartDetails);
+        }
+        header('location: /accueil');
     });
 
 
