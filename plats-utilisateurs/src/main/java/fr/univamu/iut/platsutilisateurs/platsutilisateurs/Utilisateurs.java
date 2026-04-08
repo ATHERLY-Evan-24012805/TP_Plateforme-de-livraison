@@ -1,11 +1,11 @@
 package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
 public class Utilisateurs {
-    private int id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String adresse;
+    protected int id;
+    protected String nom;
+    protected String prenom;
+    protected String email;
+    protected String adresse;
     
     public Utilisateurs(int id, String nom, String prenom, String email, String adresse) {
         this.id = id;

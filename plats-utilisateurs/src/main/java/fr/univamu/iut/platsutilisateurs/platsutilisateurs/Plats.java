@@ -1,10 +1,10 @@
 package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
 public class Plats {
-    private int id;
-    private String nom;
-    private String description;
-    private int prix;
+    protected int id;
+    protected String nom;
+    protected String description;
+    protected int prix;
     
     public Plats(int id, String nom, String description, int prix) {
         this.id = id;

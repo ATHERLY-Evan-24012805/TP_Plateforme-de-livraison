@@ -98,32 +98,35 @@ public class DataBase implements Data, Closeable {
     }
     
     @Override
-    public void createPlat(String nom, String description, int prix) {
+    public boolean createPlat(String nom, String description, int prix) {
         String query = "INSERT INTO Plats VALUES nom=?, description=?, prix=?";
-        
+        int nbRowModified = 0;
         try (PreparedStatement ps = dbConnection.prepareStatement(query)) {
             ps.setString(1, nom);
             ps.setString(2, description);
             ps.setInt(3, prix);
             
             // exécution de la requête
-            ps.executeUpdate();
+            nbRowModified = ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return (nbRowModified != 0);
     }
     
     @Override
-    public void deletePlat(int id) {
+    public boolean deletePlat(int id) {
         String query = "DELETE FROM Plats WHERE id=?";
+        int nbRowModified = 0;
         try (PreparedStatement ps = dbConnection.prepareStatement(query)) {
-         //   ps.setString(1, id);
+            ps.setInt(1, id);
             
             // exécution de la requête
-            ps.executeUpdate();
+            nbRowModified = ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return (nbRowModified != 0);
     }
     
     @Override
@@ -207,9 +210,9 @@ public class DataBase implements Data, Closeable {
     }
     
     @Override
-    public void createUser(String nom, String prenom, String email, String adresse) {
+    public boolean createUser(String nom, String prenom, String email, String adresse) {
         String query = "INSERT INTO Utilisateurs VALUES nom=?, prenom=?, email=?, adresse=?";
-        
+        int nbRowModified = 0;
         try (PreparedStatement ps = dbConnection.prepareStatement(query)) {
             ps.setString(1, nom);
             ps.setString(2, prenom);
@@ -217,23 +220,26 @@ public class DataBase implements Data, Closeable {
             ps.setString(4, adresse);
             
             // exécution de la requête
-            ps.executeUpdate();
+            nbRowModified = ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return (nbRowModified != 0);
     }
     
     @Override
-    public void deleteUser(int id) {
+    public boolean deleteUser(int id) {
         String query = "DELETE FROM Utilisateurs WHERE id=?";
+        int nbRowModified = 0;
         try (PreparedStatement ps = dbConnection.prepareStatement(query)) {
-            //ps.setString(1, id);
+            ps.setInt(1, id);
             
             // exécution de la requête
-            ps.executeUpdate();
+            nbRowModified = ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return (nbRowModified != 0);
     }
     
 }
