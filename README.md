@@ -36,3 +36,13 @@ Pour ce qui est du lien entre la classe utilisateur de l'api *plat et utilisateu
 **Thomas** : Il me faut une méthdoe createMenu(name, creatorId, items : array) car la BDD des menus est avec la composante *menu*, il faudrait aussi potientiellement une methode interne pour avoir le prix d'un menu en fonction des objets dans items.
 
 **Amine** : Il me faut une méthode ou je peux avoir les commands associées a un id. 
+
+
+## Commandes pour lancer le serveur **php** et **le serveur json** :
+```
+npx json-server --watch ApiMenus.json --port 3006
+npx json-server --watch apiOrder.json --port 3005
+php -S localhost:8082 src/public/index.php 
+npx json-server apiUserPlat.json -m ./node_modules/json-server-auth
+
+``` 

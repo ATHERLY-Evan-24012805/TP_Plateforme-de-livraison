@@ -7,7 +7,7 @@ class ApiMenu {
     private string $url = "http://localhost:3006/menus";
 
     public function getMenus(){
-        $responseJson = file_get_contents($this->url . $this->menu);
+        $responseJson = file_get_contents($this->url);
 
         if($responseJson === false) {
             return [];
