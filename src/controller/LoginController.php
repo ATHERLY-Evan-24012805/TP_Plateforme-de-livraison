@@ -7,7 +7,7 @@ use App\services\LoginService;
 class LoginController {
 
     public function index(){
-        require dirname(__DIR__) . '/views/login.php';
+        require dirname(__DIR__) . '/views/loginView.php';
     }
     public function dataFromForm(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -28,7 +28,7 @@ class LoginController {
                 exit;
             }else{
                 $erreur = "Identifiants incorrects.";
-                require dirname(__DIR__) . '/views/login.php';
+                require dirname(__DIR__) . '/views/loginView.php';
             }
         }
     }

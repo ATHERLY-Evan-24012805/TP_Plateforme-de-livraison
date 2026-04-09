@@ -38,7 +38,7 @@ class controllerPlat {
     }
 
     public function displayAll($menus,$plats){
-        require dirname(__DIR__) . '/views/plats.php';
+        require dirname(__DIR__) . '/views/platsView.php';
     }
 
     public function addToCart(int $idItem, bool $isMenu, $menus, $plats){

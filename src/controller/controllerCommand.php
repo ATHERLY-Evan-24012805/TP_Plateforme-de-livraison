@@ -22,7 +22,7 @@ class controllerCommand{
 
         $orders = $api->getOrderByUserId($userId);
 
-        require dirname(__DIR__) . '/views/orders.php';
+        require dirname(__DIR__) . '/views/ordersView.php';
     }
 
     public function createCommand($cartDetails) {

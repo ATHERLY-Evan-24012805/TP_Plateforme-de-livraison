@@ -63,6 +63,6 @@ class controllerCart{
 
     public function display($cartDetails) {
         $this->isConnected();
-        require dirname(__DIR__) . '/views/cart.php';
+        require dirname(__DIR__) . '/views/cartView.php';
     }
 }
