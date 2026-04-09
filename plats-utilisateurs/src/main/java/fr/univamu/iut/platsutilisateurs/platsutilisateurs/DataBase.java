@@ -1,5 +1,7 @@
 package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
 import java.io.Closeable;
 import java.sql.*;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 public class DataBase implements Data, Closeable {
     protected Connection dbConnection;
     
+
     public DataBase(String infoConnection, String user, String pwd) throws java.sql.SQLException, java.lang.ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");
         dbConnection = DriverManager.getConnection(infoConnection, user, pwd);
@@ -61,9 +64,9 @@ public class DataBase implements Data, Closeable {
             
             // récupération du premier (et seul) tuple résultat
             while (result.next()) {
-                int id = result.getInt("int");
+                int id = result.getInt("id");
                 String nom = result.getString("nom");
-                String description = result.getString("authors");
+                String description = result.getString("description");
                 int prix = result.getInt("prix");
                 
                 Plats currentPlat = new Plats(id, nom, description, prix);

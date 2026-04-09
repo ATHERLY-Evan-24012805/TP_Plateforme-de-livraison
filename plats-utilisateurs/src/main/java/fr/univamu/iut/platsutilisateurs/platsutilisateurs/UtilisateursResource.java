@@ -1,6 +1,5 @@
 package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -28,7 +27,7 @@ public class UtilisateursResource {
      * Constructeur permettant d'initialiser le service avec une interface d'accès aux données
      * @param data objet implémentant l'interface d'accès aux données
      */
-    public UtilisateursResource( Data data ){
+    public @Inject UtilisateursResource( Data data ){
         this.service = new UtilisateursService(data) ;
     }
     
@@ -92,7 +91,7 @@ public class UtilisateursResource {
      * @param Utilisateur l'utilisateur transmis en HTTP au format JSON et convertit en objet utilisateur
      * @return une réponse "created" si la création a été effectuée, une erreur NotFound sinon
      */
-    @PUT
+    @POST
     @Consumes("application/json")
     public Response createUser(Utilisateurs Utilisateur ){
         
@@ -108,7 +107,7 @@ public class UtilisateursResource {
      * @param id identifiant de l'utilisateur à supprimer
      * @return une réponse "deleted" si la suppression a été effectuée, une erreur NotFound sinon
      */
-    @PUT
+    @DELETE
     @Path("{id}")
     @Consumes("application/json")
     public Response deleteUser(@PathParam("id") int id ){

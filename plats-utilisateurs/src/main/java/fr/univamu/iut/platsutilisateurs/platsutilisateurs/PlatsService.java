@@ -1,21 +1,21 @@
 package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
+
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
-
 import java.util.ArrayList;
 
 public class PlatsService {
     /**
      * Objet permettant d'accéder au dépôt où sont stockées les informations sur les plats
      */
-    protected Data data ;
+    private Data data ;
     
     /**
      * Constructeur permettant d'injecter l'accès aux données
      * @param data objet implémentant l'interface d'accès aux données
      */
-    public  PlatsService( Data data) {
+    public PlatsService(Data data) {
         this.data = data;
     }
     

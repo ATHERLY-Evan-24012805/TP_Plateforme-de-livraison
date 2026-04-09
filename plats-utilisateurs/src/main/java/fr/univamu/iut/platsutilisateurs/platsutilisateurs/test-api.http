@@ -1,0 +1,19 @@
+POST http://localhost:8080/API-Commandes-1.0-SNAPSHOT/api/plats
+Content-Type: application/json
+
+{
+  "plats": [
+    {
+      "id": 1,
+      "nom": "Salade niçoise",
+      "description": "Salade composée avec thon, olives, œufs durs et anchois",
+      "prix": 8.5
+    },
+    {
+      "id": 2,
+      "nom": "Aïoli provençal",
+      "description": "Légumes vapeur, morue et sauce aïoli maison",
+      "prix": 12
+    }
+  ]
+}

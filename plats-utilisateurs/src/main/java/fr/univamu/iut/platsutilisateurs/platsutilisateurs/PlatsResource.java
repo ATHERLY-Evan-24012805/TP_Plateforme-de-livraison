@@ -1,6 +1,5 @@
 package fr.univamu.iut.platsutilisateurs.platsutilisateurs;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -17,29 +16,27 @@ public class PlatsResource {
     /**
      * Service utilisé pour accéder aux données des plats et récupérer/modifier leurs informations
      */
+    
     private PlatsService service;
-
-    /**
-     * Constructeur par défaut
-     */
+    
     public PlatsResource(){}
-
+    
+    
     /**
      * Constructeur permettant d'initialiser le service avec une interface d'accès aux données
      * @param data objet implémentant l'interface d'accès aux données
      */
-    public PlatsResource( Data data ){
+    public @Inject PlatsResource( Data data ){
         this.service = new PlatsService(data) ;
     }
-
+    
     /**
-     * Constructeur permettant d'initialiser le service d'accès aux plats
+     * Constructeur permettant d'initialiser le service d'accès aux livres
      */
     public PlatsResource( PlatsService service ){
         this.service = service;
     }
-
-
+    
     /**
      * Endpoint permettant de publier de tous les plats enregistrés
      * @return la liste des plats (avec leurs informations) au format JSON
@@ -60,7 +57,7 @@ public class PlatsResource {
     @Produces("application/json")
     public String getPlats( @PathParam("id") int id){
 
-        String result = service.getPlatsJSON(id);
+        String result = service.getPlatJSON(id);
 
         // si le plat n'a pas été trouvé
         if( result == null )
@@ -81,7 +78,7 @@ public class PlatsResource {
     public Response updatePlats(@PathParam("id") int id, Plats Plats ){
 
         // si le plat n'a pas été trouvé
-        if( ! service.updatePlats(id, Plats) )
+        if( ! service.updatePlat(id, Plats) )
             throw new NotFoundException();
         else
             return Response.ok("updated").build();
@@ -92,12 +89,12 @@ public class PlatsResource {
      * @param Plats le plat transmis en HTTP au format JSON et convertit en objet plat
      * @return une réponse "created" si la création a été effectuée, une erreur NotFound sinon
      */
-    @PUT
+    @POST
     @Consumes("application/json")
     public Response createPlats(Plats Plats ){
 
         // si le plat n'a pas été trouvé
-        if( ! service.createPlats(Plats) )
+        if( ! service.createPlat(Plats) )
             throw new NotFoundException();
         else
             return Response.ok("created").build();
@@ -108,13 +105,13 @@ public class PlatsResource {
      * @param id identifiant du plat à supprimer
      * @return une réponse "deleted" si la suppression a été effectuée, une erreur NotFound sinon
      */
-    @PUT
+    @DELETE
     @Path("{id}")
     @Consumes("application/json")
     public Response deletePlats(@PathParam("id") int id ){
 
         // si le plat n'a pas été trouvé
-        if( ! service.deletePlats(id) )
+        if( ! service.deletePlat(id) )
             throw new NotFoundException();
         else
             return Response.ok("deleted").build();

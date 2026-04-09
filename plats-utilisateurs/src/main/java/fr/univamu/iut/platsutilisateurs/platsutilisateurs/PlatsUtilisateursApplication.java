@@ -22,9 +22,10 @@ public class PlatsUtilisateursApplication extends Application {
         DataBase db = null;
 
         try{
-            db = new DataBase("jdbc:mariadb://mysql-[compte].alwaysdata.net/[compte]_library_db", "[compte]_library", "mdp");
+            db = new DataBase("jdbc:mariadb://mysql-td2-arch-logi.alwaysdata.net/td2-arch-logi_projet", "td2-arch-logi_projet", "Mot de passe");
         }
         catch (Exception e){
+            e.printStackTrace();
             System.err.println(e.getMessage());
         }
         return db;
