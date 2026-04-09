@@ -88,7 +88,7 @@ public class UtilisateursResource {
     }
     
     /**
-     * Endpoint permettant de mettre à jours un utilisateur
+     * Endpoint permettant de créer un utilisateur
      * @param Utilisateur l'utilisateur transmis en HTTP au format JSON et convertit en objet utilisateur
      * @return une réponse "created" si la création a été effectuée, une erreur NotFound sinon
      */
