@@ -1,3 +1,6 @@
+**Tous mes fichiers apiServices pointe vers un serverJson bien que celle des commandes soit fonctionnelle mais commentées.**
+
+
 ## Liste des options à implémenter :
 
 Afficher les differents composants :
