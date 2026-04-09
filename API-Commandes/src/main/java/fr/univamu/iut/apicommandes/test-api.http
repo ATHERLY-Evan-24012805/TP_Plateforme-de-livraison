@@ -2,17 +2,21 @@ POST http://localhost:8080/API-Commandes-1.0-SNAPSHOT/api/commandes
 Content-Type: application/json
 
 {
-  "abonneId": 3,
-  "adresseLivraison": "7 avenue du Prado, 13008 Marseille",
-  "dateLivraison": "2025-04-01",
-  "lignes": [
+  "commandes": [
     {
-      "menuId": 1,
-      "quantite": 2
-    },
-    {
-      "menuId": 3,
-      "quantite": 1
+      "abonneId": 3,
+      "adresseLivraison": "7 avenue du Prado, 13008 Marseille",
+      "dateLivraison": "2025-04-01",
+      "lignes": [
+        {
+          "menuId": 1,
+          "quantite": 2
+        },
+        {
+          "menuId": 3,
+          "quantite": 1
+        }
+      ]
     }
   ]
 }
