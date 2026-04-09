@@ -121,6 +121,20 @@ public class CommandeService {
     }
 
     /**
+     * Retrieves all orders for a specific subscriber and converts them to JSON.
+     */
+    public String getCommandesByAbonneJSON(int abonneId) {
+        ArrayList<Commande> commandesAbonne = commandeRepo.getCommandesByAbonne(abonneId);
+        String result = null;
+        try (Jsonb jsonb = JsonbBuilder.create()) {
+            result = jsonb.toJson(commandesAbonne);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return result != null ? result : "[]";
+    }
+
+    /**
      * Deletes an order from the database.
      * @param id The ID of the order to remove.
      * @return true if the deletion was successful.

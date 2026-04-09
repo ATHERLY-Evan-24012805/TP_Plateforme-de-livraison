@@ -22,16 +22,6 @@ public class CommandeResource {
     }
 
     /**
-     * REST endpoint to retrieve the list of all orders (GET).
-     * @return A JSON string of all orders.
-     */
-    @GET
-    @Produces("application/json; charset=utf-8")
-    public String getAllCommandes() {
-        return service.getAllCommandesJSON();
-    }
-
-    /**
      * REST endpoint to retrieve a specific order by ID (GET).
      * @param id The path parameter representing the order ID.
      * @return The JSON representation of the order.
@@ -103,4 +93,20 @@ public class CommandeResource {
                     .build();
         }
     }
+
+    /**
+     * REST endpoint to retrieve orders.
+     * SECURITY: Only returns orders if a specific abonneId is provided.
+     * Returns an empty list [] otherwise.
+     */
+    @GET
+    @Produces("application/json; charset=utf-8")
+    public String getAllCommandes(@QueryParam("abonneId") Integer abonneId) {
+        if (abonneId != null) {
+            return service.getCommandesByAbonneJSON(abonneId);
+        }
+        return "[]";
+    }
+
+
 }

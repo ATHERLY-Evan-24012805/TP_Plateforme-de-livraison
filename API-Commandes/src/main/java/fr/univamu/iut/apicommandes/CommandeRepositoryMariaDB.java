@@ -255,4 +255,31 @@ public class CommandeRepositoryMariaDB implements CommandeRepositoryInterface, C
             throw new RuntimeException("Erreur lors de la suppression de la commande", e);
         }
     }
+
+    @Override
+    public ArrayList<Commande> getCommandesByAbonne(int abonneId) {
+        ArrayList<Commande> listeCommandes = new ArrayList<>();
+        String query = "SELECT * FROM Commande WHERE abonneId = ?";
+
+        try (PreparedStatement ps = dbConnection.prepareStatement(query)) {
+            ps.setInt(1, abonneId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Commande commande = new Commande();
+                    commande.setId(rs.getInt("id"));
+                    commande.setAbonneId(rs.getInt("abonneId"));
+                    commande.setDateCommande(rs.getString("dateCommande"));
+                    commande.setAdresseLivraison(rs.getString("adresseLivraison"));
+                    commande.setDateLivraison(rs.getString("dateLivraison"));
+                    commande.setPrixTotal(rs.getDouble("prixTotal"));
+                    listeCommandes.add(commande);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur SQL lors du filtrage par abonneId : " + e.getMessage());
+        }
+
+        return listeCommandes;
+    }
 }

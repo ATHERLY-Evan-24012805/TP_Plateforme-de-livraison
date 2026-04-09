@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="commandes">
+    <output-path>$PROJECT_DIR$/out/artifacts/commandes</output-path>
+    <root id="archive" name="commandes.war" />
+  </artifact>
+</component>

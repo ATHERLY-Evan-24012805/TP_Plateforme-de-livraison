@@ -48,4 +48,11 @@ public interface CommandeRepositoryInterface {
      * @return true if the deletion was successful.
      */
     public boolean deleteCommande(int id);
+
+    /**
+     * Fetches all orders belonging to a specific subscriber.
+     * @param abonneId The ID of the subscriber.
+     * @return An ArrayList containing the filtered orders.
+     */
+    public ArrayList<Commande> getCommandesByAbonne(int abonneId);
 }
